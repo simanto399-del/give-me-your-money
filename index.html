@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Joya ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            max-width: 360px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            position: relative;
+            height: 120px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        #yesButton {
+            background-color: #ff4d6d;
+            color: white;
+            left: 18%;
+        }
+
+        #noButton {
+            background-color: #ccc;
+            color: #333;
+            right: 18%;
+        }
+
+        .heart {
+            font-size: 40px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="heart">❤️</div>
+    <h1>My Dearest Joya</h1>
+    <p>
+        Every little moment with you<br>
+        feels like my favorite song.
+    </p>
+    <p><strong>Will you be my valentine forever?</strong></p>
+
+    <div class="buttons">
+        <button id="yesButton">Yes 💍</button>
+        <button id="noButton">No 🙈</button>
+    </div>
+</div>
+
+<!-- Ed Sheeran - Perfect -->
+<audio id="perfectSong">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const noButton = document.getElementById('noButton');
+    const yesButton = document.getElementById('yesButton');
+    const song = document.getElementById('perfectSong');
+
+    noButton.addEventListener('mouseover', moveButton);
+    noButton.addEventListener('touchstart', moveButton);
+
+    function moveButton() {
+        const maxX = window.innerWidth - noButton.offsetWidth;
+        const maxY = window.innerHeight - noButton.offsetHeight;
+
+        noButton.style.left = Math.random() * maxX + 'px';
+        noButton.style.top = Math.random() * maxY + 'px';
+    }
+
+    yesButton.addEventListener('click', () => {
+        song.play();
+
+        document.body.innerHTML = `
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:100vh;
+                background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+                font-family:'Segoe UI',sans-serif;
+                text-align:center;
+                padding:20px;
+            ">
+                <div style="
+                    background:white;
+                    padding:40px;
+                    border-radius:20px;
+                    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+                ">
+                    <h1 style="color:#ff4d6d;">She Said YES!!! 💖</h1>
+                    <p style="font-size:20px;">
+                        Joya, you are my today,<br>
+                        my tomorrow, and my forever.
+                    </p>
+                    <p style="font-size:18px;">
+                        — Love, <strong>Simanto</strong>
+                    </p>
+                    <div style="font-size:50px;">💍❤️🥰</div>
+                </div>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
